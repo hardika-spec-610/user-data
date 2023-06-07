@@ -1,1 +1,43 @@
-<button routerLink="/add-user">Add User</button>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="table-wrapper">
+      <div class="container">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">nr</th>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ user.Name }}</td>
+              <td
+                [ngClass]="{
+                  'highlighted-green': user.Age >= 20 && user.Age <= 30,
+                  'highlighted-pink': user.Age > 30
+                }"
+              >
+                {{ user.Age }}
+              </td>
+              <td>{{ user.Email }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-success" routerLink="/add-user">
+          Add User
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
