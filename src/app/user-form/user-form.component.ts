@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-user-form',
@@ -13,7 +14,8 @@ export class UserFormComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private notificationService: NotificationService
   ) {
 
   }
@@ -37,7 +39,11 @@ export class UserFormComponent {
       };
       // console.log('New User:', newUser);
       this.userService.storeUserData(newUser);
+      this.notificationService.showSuccess('Form submitted successfully!', 'Success');
       this.userForm.reset();
+    } else {
+      // If form is invalid, show error toast
+      this.notificationService.showError('Please fill in all required fields.', 'Error');
     }
   }
 }

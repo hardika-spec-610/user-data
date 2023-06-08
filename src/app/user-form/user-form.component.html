@@ -1,86 +1,105 @@
 <div class="form-wrapper">
   <div class="container">
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="full-name">Full name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="full-name"
-          formControlName="name"
-          [ngClass]="{
-            'is-invalid':
-               userForm.controls['name'].touched &&
-              userForm.controls['name'].errors,
-          }"
-        />
-        <div
-          *ngIf="
-            userForm.controls['name'].touched &&
-            userForm.controls['name'].errors
-          "
-          class="text-danger"
-        >
-          <div *ngIf="userForm.controls['name'].errors['required']">
-            Full name is required
+    <div class="form-block">
+      <div class="row">
+        <div class="col-6 col-sm-12 col-md-6 col-lg-6">
+          <div class="d-flex justify-content-center align-items-center">
+            <img src="../../assets/form-bg.svg" alt="form image" class="h-50" />
+          </div>
+        </div>
+        <div class="col-6 col-sm-12 col-md-6 col-lg-6">
+          <div
+            class="d-flex flex-column justify-content-center align-items-center h-100"
+          >
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="w-100">
+              <div class="form-group">
+                <label for="full-name">Full name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="full-name"
+                  formControlName="name"
+                  placeholder="Your full name"
+                  [ngClass]="{
+                'is-invalid':
+                   userForm.controls['name'].touched &&
+                  userForm.controls['name'].errors,
+              }"
+                />
+                <div
+                  *ngIf="
+                    userForm.controls['name'].touched &&
+                    userForm.controls['name'].errors
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="userForm.controls['name'].errors['required']">
+                    Full name is required
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="age">Your age</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="age"
+                  formControlName="age"
+                  placeholder="Your age"
+                  [ngClass]="{
+                'is-invalid':
+                   userForm.controls['age'].touched &&
+                  userForm.controls['age'].errors,
+              }"
+                />
+                <div
+                  *ngIf="
+                    userForm.controls['age'].touched &&
+                    userForm.controls['age'].errors
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="userForm.controls['age'].errors['required']">
+                    Age is required
+                  </div>
+                  <div *ngIf="userForm.controls['age'].errors['min']">
+                    Age should be minimum 10 years
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  formControlName="email"
+                  placeholder="Your email"
+                  [ngClass]="{
+                'is-invalid':
+                   userForm.controls['email'].touched &&
+                  userForm.controls['email'].errors,
+              }"
+                />
+                <div
+                  *ngIf="
+                    userForm.controls['email'].touched &&
+                    userForm.controls['email'].errors
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="userForm.controls['email'].errors['required']">
+                    Email is required
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mb-0">
+                <button type="submit" class="btn btn-success">Submit</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-      <div class="form-group">
-        <label for="age">Your age</label>
-        <input
-          type="number"
-          class="form-control"
-          id="age"
-          formControlName="age"
-          [ngClass]="{
-            'is-invalid':
-               userForm.controls['age'].touched &&
-              userForm.controls['age'].errors,
-          }"
-        />
-        <div
-          *ngIf="
-            userForm.controls['age'].touched && userForm.controls['age'].errors
-          "
-          class="text-danger"
-        >
-          <div *ngIf="userForm.controls['age'].errors['required']">
-            Age is required
-          </div>
-          <div *ngIf="userForm.controls['age'].errors['min']">
-            Age should be minimum 10 years
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="email">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          id="email"
-          formControlName="email"
-          [ngClass]="{
-            'is-invalid':
-               userForm.controls['email'].touched &&
-              userForm.controls['email'].errors,
-          }"
-        />
-        <div
-          *ngIf="
-            userForm.controls['email'].touched &&
-            userForm.controls['email'].errors
-          "
-          class="text-danger"
-        >
-          <div *ngIf="userForm.controls['email'].errors['required']">
-            Email is required
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
