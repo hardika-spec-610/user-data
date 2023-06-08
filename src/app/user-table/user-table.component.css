@@ -1,9 +1,15 @@
 .table-wrapper {
   padding-top: 3em;
+  padding-bottom: 3em;
+  height: 100vh;
 }
 .highlighted-green {
   background-color: rgba(37, 147, 35, 0.7);
 }
 .highlighted-pink {
   background-color: rgba(122, 67, 238, 0.7);
+}
+.table td,
+.table th {
+  border: 1px solid #c9c9c9 !important;
 }

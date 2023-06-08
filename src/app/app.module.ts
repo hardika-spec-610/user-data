@@ -6,6 +6,7 @@ import { UserTableComponent } from './user-table/user-table.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,10 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UserTableComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
