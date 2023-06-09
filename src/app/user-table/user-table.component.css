@@ -13,3 +13,13 @@
 .table th {
   border: 1px solid #c9c9c9 !important;
 }
+.box-shadow {
+  box-shadow: inset 1px 1px 5px #333;
+  border-width: 0;
+}
+.arrow-size {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+  opacity: 0.5;
+}

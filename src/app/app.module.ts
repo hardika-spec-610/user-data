@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
-@NgModule({
+@NgModule({            // it is a decorator function used to define a module(modifies the behaviour of the class)
   declarations: [
     AppComponent,
     UserTableComponent,
@@ -18,9 +18,9 @@ import { ToastrModule } from 'ngx-toastr';
     WelcomeComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
+    BrowserModule, // provides essential services required for rendering the application in a web browser
+    AppRoutingModule,   // custom module that defines the routing configuration
+    ReactiveFormsModule,  // provides support for building reactive forms in Angular
     BrowserAnimationsModule,
     ToastrModule.forRoot()
 

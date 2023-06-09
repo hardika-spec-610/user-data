@@ -5,6 +5,7 @@ interface User {
   Name: string;
   Age: number;
   Email: string;
+  [key: string]: any;
 }
 
 @Component({
@@ -26,9 +27,35 @@ export class UserTableComponent {
     // { Name: 'Olivia Miller', Age: 34, Email: 'olivia@example.com' }
   ];
 
+  // Variables for sorting
+  sortBy: string = '';
+  sortDirection: string = '';
+
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.userData = this.userService.getUserData();
+  }
+  sortData(column: string) {
+    // Check if the same column is clicked for sorting again
+    if (this.sortBy === column) {
+      // Toggle sort direction between ascending and descending
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      // Set the column and default sort direction to ascending
+      this.sortBy = column;
+      this.sortDirection = 'asc';
+    }
+
+    // Perform the actual sorting
+    this.userData.sort((a, b) => {
+      if (a[column] < b[column]) {
+        return this.sortDirection === 'asc' ? -1 : 1;
+      } else if (a[column] > b[column]) {
+        return this.sortDirection === 'asc' ? 1 : -1;
+      } else {
+        return 0;
+      }
+    });
   }
 }
